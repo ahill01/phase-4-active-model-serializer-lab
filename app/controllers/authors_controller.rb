@@ -11,6 +11,11 @@ class AuthorsController < ApplicationController
     render json: author
   end
 
+  def summary
+    movie = Movie.find(params[:id])
+    render json: movie, serializer: MovieSummarySerializer
+  end
+
   private
 
   def render_not_found_response
